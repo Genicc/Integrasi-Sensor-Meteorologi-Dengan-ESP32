@@ -1,28 +1,31 @@
-🌦️ Integrasi Sensor Meteorologi Dengan ESP32
-  Monitoring Curah Hujan, Suhu & Kelembaban, dan Kelembaban Tanah
-  Project ini mengintegrasikan beberapa sensor meteorologi menggunakan ESP32 dengan sistem multi-tasking:
-    1. Rain Gauge RK400 (RS485 Modbus)
-    2. AHT10/AHT20 (I2C – Suhu & Kelembaban)
-    3. Sensor Soil Moisture (Analog ADC ESP32)
-  Seluruh data ditampilkan melalui Serial Monitor dalam format log yang rapi.
+🌦️ INTEGRASI SENSOR METEOROLOGI DENGAN ESP32
+  
+      Monitoring Curah Hujan, Suhu & Kelembaban, dan Kelembaban Tanah
+      Project ini mengintegrasikan beberapa sensor meteorologi menggunakan ESP32 dengan sistem multi-tasking:
+      Rain Gauge RK400 (RS485 Modbus), 
+      AHT10/AHT20 (I2C – Suhu & Kelembaban), 
+      Sensor Soil Moisture (Analog ADC ESP32), 
+      Seluruh data ditampilkan melalui Serial Monitor dalam format log yang rapi.
+
+✨ FITUR UTAMA
+
+      Pembacaan curah hujan via Modbus RS485,
+      Pembacaan suhu & RH menggunakan AHT10/AHT20,
+      Pembacaan kelembaban tanah dengan status: Kering / Sedang / Basah,
+      Sistem multi-task FreeRTOS untuk pembacaan sensor yang stabil,
+      Deteksi otomatis mulai hujan dan hujan berhenti.
 
 
-✨ Fitur Utama
-      1. Pembacaan curah hujan via Modbus RS485
-      2. Pembacaan suhu & RH menggunakan AHT10/AHT20
-      3. Pembacaan kelembaban tanah dengan status: Kering / Sedang / Basah
-      4. Sistem multi-task FreeRTOS untuk pembacaan sensor yang stabil
-      5. Deteksi otomatis mulai hujan dan hujan berhenti
+📌 ARSITEKTUR SISTEM
+
+      Rain Gauge RK400 → RS485 → ESP32 (UART2)
+      AHT10/AHT20      → I2C   → ESP32 (SDA 21, SCL 22)
+      Soil Sensor      → ADC   → ESP32 (GPIO 34)
+      Serial Monitor   → USB   → PC
 
 
-📌 Arsitektur Sistem
-      1. Rain Gauge RK400 → RS485 → ESP32 (UART2)
-      2. AHT10/AHT20      → I2C   → ESP32 (SDA 21, SCL 22)
-      3. Soil Sensor      → ADC   → ESP32 (GPIO 34)
-      4. Serial Monitor   → USB   → PC
+🔌 WIRING
 
-
-🔌 Wiring
       | Sensor          | Pin ESP32  |
       | --------------- | ---------- |
       | Soil Moisture   | GPIO 34    |
@@ -33,7 +36,7 @@
       | VCC/GND semua   | 3.3V / GND |
 
 
-🖥️ Contoh Output Serial
+🖥️ OUTPUT SERIAL MONITOR
 
       =================================
       Soil Moisture Monitor - ESP32
@@ -71,7 +74,8 @@
       ===============================================
 
 
-📦 Library yang Dibutuhkan
+📦 LIBRARY YANG DIBUTUHKAN
+
       1. ModbusMaster
       2. Adafruit AHTX0
       3. ESP32 Core Arduino
